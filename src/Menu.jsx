@@ -78,10 +78,10 @@ export default function Menu() {
 
       {menu === 2 && (
         <div className="w-full">
-          <p className="text-3xl">Enter your Name</p>
+          <p className="text-3xl">Who’s your secret love?</p>
           {}
           <input
-            placeholder="Enter name"
+            placeholder="Who’s your secret love?"
             value={name}
             className="w-full p-3 rounded-lg bg-transparent text-black hover:bg-slate-50 shadow-md focus:outline-none mb-5"
             autoComplete="off"
@@ -121,9 +121,9 @@ export default function Menu() {
               </button>
               <button
                 className="bg-pink-500 text-white w-full h-12 cursor-pointer rounded-md hover:bg-pink-600 transition duration-300 ease-in-out  text-lg mb-4"
-                onClick={() => handleLanguageSelection("yo")}
+                onClick={() => handleLanguageSelection("bn")}
               >
-                Yoruba
+                Bangla
               </button>
               <button
                 className="bg-pink-500 text-white w-full h-12 cursor-pointer rounded-md hover:bg-pink-600 transition duration-300 ease-in-out  text-lg mb-4"
@@ -155,12 +155,7 @@ export default function Menu() {
               >
                 Italian
               </button>
-              <button
-                className="bg-pink-500 text-white w-full h-12 cursor-pointer rounded-md hover:bg-pink-600 transition duration-300 ease-in-out  text-lg mb-4"
-                onClick={() => handleLanguageSelection("bn")}
-              >
-                Bangla
-              </button>
+              
             </div>
           </div>
         </div>

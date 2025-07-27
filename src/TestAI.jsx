@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useValentineContext } from './Context/ValentineContext';
 import { toast } from 'react-toastify';
 

@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 import { Heart } from "lucide-react";
-import { useEffect } from "react";
+
 
 
 const ValentineMenuButton = ({ onClick, text, setIsClicked, isClicked}) => {
