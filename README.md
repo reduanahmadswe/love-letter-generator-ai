@@ -1,10 +1,10 @@
-# 🏴‍☠️ LoveFromTheDeep ⚓
+# 🏴‍☠️ LoveFromTheDeep
 
 A magical pirate-themed love letter generator that brings romance from the seven seas! Set sail on an adventure of the heart with **Captain Toothless Tony the Cursed** and receive personalized, hilariously romantic love letters powered by AI.
 
 ![LoveFromTheDeep Banner](https://img.shields.io/badge/LoveFromTheDeep-Pirate%20Romance-ff6b6b?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K)
 
-## ⚓ Overview
+## Overview
 
 **LoveFromTheDeep** is a unique web application that combines the romance of the high seas with the power of artificial intelligence. Users embark on a romantic journey where they receive personalized love letters from a legendary pirate captain, complete with dramatic flair, nautical humor, and heartfelt sentiment.
 
@@ -18,13 +18,14 @@ A magical pirate-themed love letter generator that brings romance from the seven
 
 ## 🚀 Live Demo
 
-**[⚓ Set Sail Now!](https://your-lovefromthedeep-app.vercel.app)**
+**[ Set Sail Now!](https://your-lovefromthedeep-app.vercel.app)**
 
 ## ✨ Features
 
 ### 🗺️ Core Features
 
 - **Personalized Love Letters**: AI generates unique, funny, and romantic pirate-themed letters
+- **📄 PDF Download**: Beautiful treasure map-style PDF downloads of your love letters
 - **Interactive Adventure**: Multi-step journey from harbor to the deep seas
 - **Multilingual Support**: Love letters in 8 different languages
 - **Beautiful Animations**: Smooth transitions and delightful user interactions
@@ -58,6 +59,8 @@ A magical pirate-themed love letter generator that brings romance from the seven
 - **🎨 Tailwind CSS** - Beautiful, responsive styling
 - **🎬 Framer Motion** - Smooth animations and transitions
 - **🧭 React Router** - Seamless navigation between seas
+- **📄 jsPDF** - High-quality PDF generation
+- **🖼️ html2canvas** - HTML to image conversion for PDFs
 
 ### AI & Backend
 
@@ -123,7 +126,8 @@ Visit `http://localhost:5173` to start your romantic adventure! 🌊
 2. **👤 Enter Name**: Provide your name for personalization
 3. **🌍 Choose Language**: Select from 8 available languages
 4. **📜 Receive Letter**: Wait for Captain Tony to craft your unique love letter
-5. **⚓ Make Decision**: Choose to sail together or remain on land
+5. **📄 Download Treasure**: Save your letter as a beautiful PDF treasure map
+6. **⚓ Make Decision**: Choose to sail together or remain on land
 
 ### 🔧 For Developers
 
@@ -241,10 +245,9 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 📞 Support & Contact
 
-- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/yourusername/LoveFromTheDeep/issues)
-- 💡 **Feature Requests**: [GitHub Discussions](https://github.com/yourusername/LoveFromTheDeep/discussions)
-- 📧 **Email**: your.email@example.com
-- 🐦 **Twitter**: [@YourTwitterHandle](https://twitter.com/yourtwitterhandle)
+- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/reduanahmadswe/LoveFromTheDeep/issues)
+- 💡 **Feature Requests**: [GitHub Discussions](https://github.com/reduanahmadswe/LoveFromTheDeep/discussions)
+- 📧 **Email**: reduanahmadswe.com
 
 ## 🔮 Roadmap
 
@@ -269,7 +272,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 <div align="center">
 
-**⚓ Set sail for romance! ⚓**
+**Set sail for romance! **
 
 Made with 💕 by passionate developers who believe love should be an adventure.
 

@@ -28,27 +28,30 @@ export const ValentineContextProvider = ({ children }) => {
               {
                 parts: [
                   {
-                    text: `Ahoy, Gemini! Write an outrageously funny and romantic love letter to ${name}, from their past life as a legendary pirate captain named "Toothless Tony the Cursed." 
+                    text: `Dear Gemini, craft a deeply romantic and poetic love letter for ${name}, written from the perspective of someone who has loved them in silence for a long time but finally finds the courage to speak their heart.
 
-🧭 Format the letter with line breaks between paragraphs and short sentences so it reads like an actual pirate letter — dramatic, funny, and easy to display on a website.
+🌹 Format Instructions:
+- Structure the letter in **short, poetic paragraphs** with **double line breaks (\\n\\n)** to suit website display.
+- Keep the total length around **150–200 words** to ensure it fits beautifully on a single PDF page.
+- Use **elegant, poetic language** that feels timeless and sincere — like a handwritten letter kept in a drawer for years.
 
-The letter must:
-- Be written on the back of a soggy treasure map.
-- Include dramatic pirate slang (e.g. "Ye be the jellyfish in me jello").
-- Mention a jealous parrot named "Screech" who tried to steal ${name}'s heart.
-- Complain about losing a wooden leg in a swordfight with a mermaid (named Debra).
-- Refer to an ancient sea curse that makes the pirate fall in love every time they sneeze.
-- And describe ${name}'s beauty using completely ridiculous comparisons (e.g. "Yer smile's brighter than a lantern strapped to a narwhal at midnight").
+💘 Content Requirements:
+- Begin with a soft introduction, like a quiet confession under the stars.
+- Express how long the writer has admired ${name} from afar — in class, in passing hallways, in shared glances.
+- Use rich metaphors like:  
+  “You are the sunrise I wait for every day, even when it rains.”  
+  “Your smile is the melody I’ve been trying to hum since forever.”
+- Mention how the writer’s heart beats louder whenever ${name} speaks their name.
+- Share a memory or moment where love nearly escaped their lips — but fear held it back.
+- Gently confess: “This letter is my courage wrapped in words.”
 
-Make the pirate sound emotionally unstable but wildly romantic. The tone should be overly poetic, soaked in rum, and just slightly unhinged.
+🌙 End with a warm and heartfelt farewell — not desperate, but hopeful — like:
+  “If nothing else, let this letter be a gentle truth: someone out there loves you with quiet fire.”
 
-🎭 End the letter with a dramatic pirate breakup and a poetic toast:  
-"To cursed love, missing limbs, and the one that got away — both the fish and ye, ${name}."
-
-IMPORTANT LANGUAGE INSTRUCTIONS:
-- Write the ENTIRE letter in ${
+🌐 Language Instructions:
+Write the **entire letter** in ${
                       preferredLanguage === "bn"
-                        ? "Bengali/Bangla"
+                        ? "Bengali"
                         : preferredLanguage === "en"
                         ? "English"
                         : preferredLanguage === "es"
@@ -64,13 +67,13 @@ IMPORTANT LANGUAGE INSTRUCTIONS:
                         : preferredLanguage === "yo"
                         ? "Yoruba"
                         : preferredLanguage
-                    } language.
-- DO NOT use English if another language is requested.
-- Adapt pirate slang to work naturally in the target language.
-- Keep cultural context appropriate for the language while maintaining the humorous pirate theme.
+                    } only.  
+If a language other than English is selected, do not use any English at all.  
+Translate romantic expressions in a culturally appropriate and naturally poetic way.  
+Let the letter sound like someone baring their heart on a quiet night, longing to be seen and loved in return.
 
-Keep the letter exactly around 200 words in the specified language.  
-Add line breaks (\\n\\n) for each new paragraph to make it easy to display beautifully on a website.`,
+
+                    `,
                   },
                 ],
               },

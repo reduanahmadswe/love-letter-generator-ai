@@ -1,13 +1,37 @@
 import { motion } from "framer-motion";
+import { Download } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useValentineContext } from "./Context/ValentineContext";
+import { generatePirateLetterPDF } from "./utils/pdfGenerator";
 
 const DisplayMessage = () => {
-  const { name, messages, fetchMessage } = useValentineContext();
+  const { name, messages, fetchMessage, preferredLanguage } =
+    useValentineContext();
   const [loading, setLoading] = useState(true); // State for loading
   const [response, setResponse] = useState(null); // State for Yes/No answer
+  const [downloadingPDF, setDownloadingPDF] = useState(false); // State for PDF download
   const navigate = useNavigate();
+
+  // PDF Download function
+  const handleDownloadPDF = async () => {
+    if (!messages.length || !name) return;
+
+    setDownloadingPDF(true);
+    try {
+      await generatePirateLetterPDF(
+        name,
+        messages[0].content,
+        preferredLanguage
+      );
+      // You could add a success toast here
+    } catch (error) {
+      console.error("Failed to generate PDF:", error);
+      // You could add an error toast here
+    } finally {
+      setDownloadingPDF(false);
+    }
+  };
 
   useEffect(() => {
     const getMessage = async () => {
@@ -104,6 +128,30 @@ const DisplayMessage = () => {
                 </span>
                 <span className="text-amber-600">⭐</span>
               </div>
+
+              {/* PDF Download Button */}
+              <motion.button
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.8 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleDownloadPDF}
+                disabled={downloadingPDF}
+                className="mt-6 bg-gradient-to-r from-amber-600 to-amber-700 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out flex items-center gap-2 mx-auto disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {downloadingPDF ? (
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                    <span>Creating Treasure...</span>
+                  </>
+                ) : (
+                  <>
+                    <Download className="w-5 h-5" />
+                    <span>Download as Treasure Map</span>
+                  </>
+                )}
+              </motion.button>
             </div>
           </div>
         ) : (
