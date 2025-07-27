@@ -118,7 +118,7 @@ const DisplayMessage = () => {
           </div>
         )}
 
-        {/* "Will you be my Valentine?" Section */}
+        {/* "Will you sail with me?" Section */}
         {!loading && messages.length > 0 && !response && (
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -127,12 +127,12 @@ const DisplayMessage = () => {
             className="mt-8 bg-gradient-to-r from-pink-100 to-red-100 p-6 rounded-xl border-2 border-pink-200 shadow-lg"
           >
             <div className="text-center mb-6">
-              <div className="text-4xl mb-2">💕</div>
+              <div className="text-4xl mb-2">🌊⚓</div>
               <p className="text-xl md:text-2xl font-bold text-red-600 mb-2">
-                Will you be my Valentine?
+                Will you sail with me across the seven seas?
               </p>
               <p className="text-pink-600 text-sm">
-                Captain Tony awaits your answer...
+                Captain Tony awaits your answer from the deep...
               </p>
             </div>
             <div className="flex flex-col md:flex-row justify-center gap-6 mt-6">
@@ -142,7 +142,7 @@ const DisplayMessage = () => {
                 className="bg-gradient-to-r from-pink-500 to-red-500 text-white px-8 py-3 rounded-full transition-all duration-300 ease-in-out hover:shadow-lg cursor-pointer font-semibold text-lg flex items-center justify-center gap-2"
                 onClick={() => setResponse("yes")}
               >
-                <span>Yes! 💖</span>
+                <span>Aye! Set sail! ⛵�</span>
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -150,7 +150,7 @@ const DisplayMessage = () => {
                 className="bg-gradient-to-r from-gray-400 to-gray-500 text-white px-8 py-3 rounded-full transition-all duration-300 ease-in-out hover:shadow-lg cursor-pointer font-semibold text-lg flex items-center justify-center gap-2"
                 onClick={() => setResponse("no")}
               >
-                <span>No 😢</span>
+                <span>Nay, landlubber! 🏴‍☠️</span>
               </motion.button>
             </div>
           </motion.div>
@@ -164,9 +164,9 @@ const DisplayMessage = () => {
             transition={{ duration: 0.5 }}
             className="mt-6 bg-gradient-to-r from-green-100 to-emerald-100 p-6 rounded-xl border-2 border-green-200 text-center"
           >
-            <div className="text-5xl mb-3">🎉💕🎉</div>
+            <div className="text-5xl mb-3">🎉⛵🎉</div>
             <p className="text-green-600 font-bold text-xl mb-2">
-              Yay! You made my day!
+              Ahoy! Welcome aboard, matey!
             </p>
             <p className="text-green-500 text-lg">
               Captain Tony is dancing with joy! 🏴‍☠️�
@@ -180,12 +180,12 @@ const DisplayMessage = () => {
             transition={{ duration: 0.5 }}
             className="mt-6 bg-gradient-to-r from-gray-100 to-slate-100 p-6 rounded-xl border-2 border-gray-200 text-center"
           >
-            <div className="text-6xl mb-3">😢</div>
+            <div className="text-6xl mb-3">🌊�</div>
             <p className="text-gray-600 font-bold text-2xl mb-2">
-              Oh... maybe next time?
+              The tides have turned...
             </p>
             <p className="text-gray-500 text-lg">
-              The captain will sail the seven seas waiting... 🌊
+              The captain will sail alone through stormy waters... ⛈️🚢
             </p>
           </motion.div>
         )}
@@ -199,7 +199,7 @@ const DisplayMessage = () => {
         onClick={() => navigate("/")}
       >
         <span>⬅️</span>
-        <span>Back to Adventure</span>
+        <span>Back to Harbor</span>
       </motion.button>
     </div>
   );

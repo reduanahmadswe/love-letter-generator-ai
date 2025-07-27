@@ -63,11 +63,11 @@ export default function Menu() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            Welcome to Pluggito Valentine&apos; Special
+            Welcome to LoveFromTheDeep
           </motion.h1>
           <div>
             <ValentineMenuButton
-              text={"Explore Love"}
+              text={"Set Sail"}
               onClick={handleNextMenu}
               isClicked={isClicked}
               setIsClicked={setIsClicked}

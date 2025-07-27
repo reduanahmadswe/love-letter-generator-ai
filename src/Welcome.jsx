@@ -1,37 +1,26 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-
-
-
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const messages = [
-  "Happy Valentines",
-  "Hello",
-  "Hola",
-  "Bonjour",
+  "Ahoy Matey!",
   "Hallo",
-  "Ciao",
-  "こんにちは",
-  "안녕하세요",
-  "你好",
-  "Привет",
-  "Olá"
+  
+
 ];
 
-
 const Welcome = () => {
-    const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(0);
 
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setIndex((prevIndex) => (prevIndex + 1) % messages.length);
-      }, 5000);
-      return () => clearInterval(interval);
-    }, []);
-  
-    return (
-      <div className="flex items-center justify-center w-full p-1 bg-inherit overflow-hidden flex-col gap-3">
-        <div>
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % messages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="flex items-center justify-center w-full p-1 bg-inherit overflow-hidden flex-col gap-3">
+      <div>
         <AnimatePresence mode="wait">
           <motion.h1
             key={messages[index]}
@@ -44,9 +33,9 @@ const Welcome = () => {
             {messages[index]}
           </motion.h1>
         </AnimatePresence>
-        </div>
       </div>
-    );
-}
+    </div>
+  );
+};
 
-export default Welcome
+export default Welcome;
