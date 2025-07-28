@@ -1,125 +1,399 @@
 @import "tailwindcss";
 
-body {
-  background-image: linear-gradient(to right, #fce7f3, #fee2e2, #fce7f3);
-  font-family: "Times New Roman", Times, serif;
+/* Root variables for consistent responsive design */
+:root {
+  --container-padding: 1rem;
+  --section-spacing: 2rem;
+  --border-radius: 0.75rem;
+  --transition-duration: 0.3s;
+  --max-content-width: 1200px;
+
+  /* Typography scale for mobile-first */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+}
+
+/* Responsive typography scale */
+@media (min-width: 640px) {
+  :root {
+    --container-padding: 1.5rem;
+    --section-spacing: 3rem;
+    --font-size-3xl: 2.25rem;
+    --font-size-4xl: 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --container-padding: 2rem;
+    --section-spacing: 4rem;
+    --font-size-3xl: 2.5rem;
+    --font-size-4xl: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --container-padding: 2.5rem;
+    --section-spacing: 5rem;
+    --font-size-3xl: 3rem;
+    --font-size-4xl: 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --container-padding: 3rem;
+    --section-spacing: 6rem;
+  }
+}
+
+/* Base responsive styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px; /* Base font size */
 }
 
-/* Smooth fade-in animation */
+body {
+  background-image: linear-gradient(
+    135deg,
+    #fce7f3 0%,
+    #fee2e2 50%,
+    #fce7f3 100%
+  );
+  font-family: "Times New Roman", Times, serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Responsive container system */
+.container {
+  width: 100%;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* Responsive grid system */
+.grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.grid-cols-1 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .grid-cols-sm-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .grid-cols-md-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-cols-md-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-cols-lg-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Responsive flex utilities */
+.flex-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .flex-stack-md-row {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* Touch-friendly interactive elements */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-duration) ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.touch-target:hover,
+.touch-target:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.touch-target:active {
+  transform: translateY(0);
+}
+
+/* Responsive typography classes */
+.text-responsive-xs {
+  font-size: var(--font-size-xs);
+}
+.text-responsive-sm {
+  font-size: var(--font-size-sm);
+}
+.text-responsive-base {
+  font-size: var(--font-size-base);
+}
+.text-responsive-lg {
+  font-size: var(--font-size-lg);
+}
+.text-responsive-xl {
+  font-size: var(--font-size-xl);
+}
+.text-responsive-2xl {
+  font-size: var(--font-size-2xl);
+}
+.text-responsive-3xl {
+  font-size: var(--font-size-3xl);
+}
+.text-responsive-4xl {
+  font-size: var(--font-size-4xl);
+}
+
+/* Smooth fade-in animation with responsive scaling */
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(20px) scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
+
 .animate-fade-in {
-  animation: fade-in 0.5s ease-out;
+  animation: fade-in 0.6s ease-out;
 }
 
-/* Floating heart effect */
+/* Responsive floating heart effect */
 @keyframes float {
   0% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotate(0deg);
   }
-  50% {
-    transform: translateY(-10px);
+  33% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+  66% {
+    transform: translateY(-4px) rotate(-1deg);
   }
   100% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotate(0deg);
   }
 }
+
 .animate-float {
-  animation: float 3s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
 }
 
-/* Heartbeat animation */
+/* Enhanced heartbeat animation */
 @keyframes heartbeat {
   0%,
   100% {
     transform: scale(1);
   }
+  25% {
+    transform: scale(1.05);
+  }
   50% {
     transform: scale(1.1);
   }
-}
-.animate-heartbeat {
-  animation: heartbeat 0.8s ease-in-out infinite;
+  75% {
+    transform: scale(1.05);
+  }
 }
 
-/* Heart scales up smoothly */
+.animate-heartbeat {
+  animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+/* Responsive scale-up animation */
 @keyframes scale-up {
   0% {
-    transform: translate(-50%, -50%) scale(0);
+    transform: translate(-50%, -50%) scale(0) rotate(-10deg);
+    opacity: 0;
   }
   100% {
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 1;
   }
 }
+
 .animate-scale-up {
-  animation: scale-up 0.3s ease-out forwards;
+  animation: scale-up 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
+/* Responsive hop animation */
 @keyframes hop {
   0%,
   100% {
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(0) rotate(0deg) scale(1);
   }
   50% {
-    transform: translateY(-20px) rotate(5deg);
+    transform: translateY(-15px) rotate(3deg) scale(1.05);
   }
 }
 
+/* Responsive bunny design */
 .bunny {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: clamp(30px, 5vw, 50px);
+  height: clamp(30px, 5vw, 50px);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23FFC0CB' d='M50 95c-11 0-20-9-20-20V35c0-11 9-20 20-20s20 9 20 20v40c0 11-9 20-20 20z'/%3E%3Ccircle fill='%23FFD7D7' cx='50' cy='30' r='15'/%3E%3Ccircle fill='%23FFD7D7' cx='35' cy='20' r='10'/%3E%3Ccircle fill='%23FFD7D7' cx='65' cy='20' r='10'/%3E%3Ccircle fill='%23000' cx='45' cy='25' r='3'/%3E%3Ccircle fill='%23000' cx='55' cy='25' r='3'/%3E%3Cpath fill='%23000' d='M50 40c-2.8 0-5-2.2-5-5h10c0 2.8-2.2 5-5 5z'/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
-  animation: hop 2s infinite;
+  animation: hop 2.5s infinite ease-in-out;
+  z-index: 1;
 }
 
+/* Responsive countdown container */
 .countdown-container {
   text-align: center;
-  padding: 20px;
-  color: #b30d0d; /* Your brand color */
+  padding: var(--space-lg);
+  color: #b30d0d;
   font-family: "Times New Roman", Times, serif;
   animation: fade-in 1s ease-out;
+  max-width: 100%;
 }
 
 .countdown-title {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.countdown-grid {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.countdown-box {
-  background: rgba(255, 255, 255, 0.8);
-  padding: 10px 15px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.countdown-number {
-  font-size: 2rem;
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--space-md);
   font-weight: bold;
 }
 
+/* Responsive countdown grid */
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: var(--space-sm);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .countdown-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+  }
+}
+
+.countdown-box {
+  background: rgba(255, 255, 255, 0.9);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-duration) ease;
+  backdrop-filter: blur(10px);
+}
+
+.countdown-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.countdown-number {
+  font-size: var(--font-size-2xl);
+  font-weight: bold;
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .countdown-number {
+    font-size: var(--font-size-3xl);
+  }
+}
+
 .countdown-label {
-  font-size: 1rem;
+  font-size: var(--font-size-sm);
   color: #ff6b81;
+  margin-top: var(--space-xs);
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .countdown-box {
+    border: 2px solid #000;
+    background: #fff;
+  }
+
+  .countdown-number {
+    color: #000;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+.touch-target:focus,
+button:focus,
+input:focus,
+select:focus {
+  outline: 3px solid #ff6b81;
+  outline-offset: 2px;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

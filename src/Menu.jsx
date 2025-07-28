@@ -41,7 +41,7 @@ export default function Menu() {
     } else {
       setIsClicked(true);
     }
-  }, [name, menu === 2]);
+  }, [name, menu]);
 
   useEffect(() => {
     return () => {
@@ -52,7 +52,7 @@ export default function Menu() {
   console.log("Name:", name);
 
   return (
-    <header className="bg-inherit flex justify-center p-6 text-center w-xl sm:w-2xl">
+    <div className="w-full max-w-2xl mx-auto px-4">
       {menu === 1 && (
         <div className="w-full">
           <Welcome />
@@ -99,67 +99,64 @@ export default function Menu() {
       )}
 
       {menu === 3 && (
-        <div>
-          <div
-            className="text-lg flex flex-row mb-4 cursor-pointer items-center"
+        <motion.div
+          className="space-y-6"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.button
+            className="flex items-center gap-2 text-responsive-lg text-pink-700 hover:text-pink-800 transition-colors duration-200 touch-target"
             onClick={handleBackToMenu}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 }}
+            aria-label="Go back to previous step"
           >
-            <LucideArrowLeft />
-            back
-          </div>
+            <LucideArrowLeft className="w-5 h-5" />
+            Back
+          </motion.button>
 
-          <div className="flex-col flex gap-3">
-            <h4 className="text-4xl font-semibold">
-              Select the preferred Language
+          <motion.div
+            className="text-center space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <h4 className="text-responsive-3xl font-semibold text-pink-700">
+              Select Your Preferred Language
             </h4>
-            <div className="flex-wrap justify-between ">
-              <button
-                className="bg-pink-500 text-white w-full h-12 cursor-pointer rounded-md hover:bg-pink-600 transition duration-300 ease-in-out  text-lg mb-4"
-                onClick={() => handleLanguageSelection("en")}
-              >
-                English
-              </button>
-              <button
-                className="bg-pink-500 text-white w-full h-12 cursor-pointer rounded-md hover:bg-pink-600 transition duration-300 ease-in-out  text-lg mb-4"
-                onClick={() => handleLanguageSelection("bn")}
-              >
-                Bangla
-              </button>
-              <button
-                className="bg-pink-500 text-white w-full h-12 cursor-pointer rounded-md hover:bg-pink-600 transition duration-300 ease-in-out  text-lg mb-4"
-                onClick={() => handleLanguageSelection("es")}
-              >
-                Spanish
-              </button>
-              <button
-                className="bg-pink-500 text-white w-full h-12 cursor-pointer rounded-md hover:bg-pink-600 transition duration-300 ease-in-out  text-lg mb-4"
-                onClick={() => handleLanguageSelection("ja")}
-              >
-                Japanese
-              </button>
-              <button
-                className="bg-pink-500 text-white w-full h-12 cursor-pointer rounded-md hover:bg-pink-600 transition duration-300 ease-in-out text-lg mb-4"
-                onClick={() => handleLanguageSelection("ko")}
-              >
-                Korean
-              </button>
-              <button
-                className="bg-pink-500 text-white w-full h-12 cursor-pointer rounded-md hover:bg-pink-600 transition duration-300 ease-in-out  text-lg mb-4"
-                onClick={() => handleLanguageSelection("fr")}
-              >
-                French
-              </button>
-              <button
-                className="bg-pink-500 text-white w-full h-12 cursor-pointer rounded-md hover:bg-pink-600 transition duration-300 ease-in-out  text-lg"
-                onClick={() => handleLanguageSelection("it")}
-              >
-                Italian
-              </button>
-              
+
+            <div className="grid grid-cols-1 grid-cols-sm-2 gap-4 max-w-md mx-auto">
+              {[
+                { code: "en", name: "English", flag: "🇺🇸" },
+                { code: "bn", name: "বাংলা", flag: "🇧🇩" },
+                { code: "es", name: "Español", flag: "🇪🇸" },
+                { code: "ja", name: "日本語", flag: "🇯🇵" },
+                { code: "ko", name: "한국어", flag: "🇰🇷" },
+                { code: "fr", name: "Français", flag: "🇫🇷" },
+                { code: "it", name: "Italiano", flag: "🇮🇹" },
+                { code: "yo", name: "Yorùbá", flag: "🇳🇬" },
+              ].map((lang, index) => (
+                <motion.button
+                  key={lang.code}
+                  className="bg-gradient-to-r from-pink-500 to-pink-600 text-white touch-target rounded-xl hover:from-pink-600 hover:to-pink-700 transition-all duration-300 ease-in-out text-responsive-base font-medium shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                  onClick={() => handleLanguageSelection(lang.code)}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  aria-label={`Select ${lang.name} language`}
+                >
+                  <span className="text-lg">{lang.flag}</span>
+                  <span>{lang.name}</span>
+                </motion.button>
+              ))}
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
-    </header>
+    </div>
   );
 }

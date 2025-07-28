@@ -1,45 +1,52 @@
+import { Route, Routes } from "react-router-dom";
 import BunnyBackground from "./BunnyBackground";
 import Menu from "./Menu";
-import { Route, Routes } from "react-router-dom";
 //mport { useState, useEffect } from "react";
 //import { useNavigate } from "react-router-dom";
-import DisplayMessage from "./DisplayMessage";
+import { Analytics } from "@vercel/analytics/react";
 import { ToastContainer } from "react-toastify";
-import { Analytics } from "@vercel/analytics/react"
-
+import DisplayMessage from "./DisplayMessage";
 
 const App = () => {
   //const [countdownFinished, setCountdownFinished] = useState(false);
   //const navigate = useNavigate();
 
- {/* useEffect(() => {
+  {
+    /* useEffect(() => {
     if (countdownFinished) {
       navigate("/"); // Redirects after countdown
     }
-  }, [countdownFinished, navigate]); */}
+  }, [countdownFinished, navigate]); */
+  }
 
   return (
-    <div className="relative min-h-screen overflow-hidden px-4 md:px-10 my-auto">
+    <div className="relative min-h-screen overflow-hidden">
       {/* Bunny Background */}
       <BunnyBackground />
-      <ToastContainer />
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        toastClassName="text-sm"
+      />
 
-      {/* Main Content */}
-      {/*{!countdownFinished ? (
-        <CountdownTimer onComplete={() => setCountdownFinished(true)} />
-      ) : (
-        
-      )} */}
-
-      <main className="relative z-10 flex justify-center items-center min-h-screen">
+      {/* Main Content with responsive container */}
+      <main className="relative z-10 container min-h-screen flex items-center justify-center py-8">
+        <div className="w-full max-w-4xl">
           <Routes>
             <Route path="/" element={<Menu />} />
             <Route path="/displaymessage" element={<DisplayMessage />} />
-           
           </Routes>
-        </main> 
+        </div>
+      </main>
 
-        <Analytics/>
+      <Analytics />
     </div>
   );
 };
